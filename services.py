@@ -22,6 +22,7 @@ def filter_in_cmd1(cmd2: str, value1: str, value2: Union[int, str]) -> List[str]
             return sorted_(data=data, asc=value2)
         elif cmd2 == 'regex':
             return das_regex(reg=value2, data=data)
+        abort(400)
     except Exception as e:
         abort(400, e)
 
@@ -39,6 +40,7 @@ def map_in_cmd1(cmd2: str, value1: Union[int, str], value2: Union[int, str]) -> 
             return sorted_(data=data, asc=value2)
         elif cmd2 == 'regex':
             return das_regex(data=data, reg=value2)
+        abort(400)
     except Exception as e:
         abort(400, e)
 
@@ -56,6 +58,7 @@ def sort_in_cmd1(cmd2: str, value1: str, value2: Union[int, str]) -> List[str]:
             return das_mapping(col=value2, data=data)
         elif cmd2 == 'regex':
             return das_regex(data=data, reg=value2)
+        abort(400)
     except Exception as e:
         abort(400, e)
 
@@ -73,6 +76,7 @@ def limit_in_cmd1(cmd2: str, value1: Union[int, str], value2: Union[int, str]) -
             return unique_(data=data)
         elif cmd2 == 'regex':
             return das_regex(data=data, reg=value2)
+        abort(400)
     except Exception as e:
         abort(400, e)
 
@@ -90,5 +94,6 @@ def regex_in_cmd1(cmd2: str, value1: str, value2: Union[int, str]) -> List[str]:
             return unique_(data=data)
         elif cmd2 == 'limit':
             return limit(value=value2, data=data)
+        abort(400)
     except Exception as e:
         abort(400, e)

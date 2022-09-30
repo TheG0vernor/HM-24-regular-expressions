@@ -1,6 +1,8 @@
 from typing import List, Iterable, Union, Any
 import re
 
+from flask import abort
+
 from constants import LOG_DIR
 
 
@@ -34,6 +36,7 @@ def sorted_(asc: Any, data: Iterable[str] = None) -> List[str]:
         return sorted(data)
     elif asc == 'desc':
         return sorted(data, reverse=True)
+    abort(400)
 
 
 def limit(value: Any, data: Iterable[str] = None) -> List[str]:
