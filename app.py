@@ -9,9 +9,6 @@ app = Flask(__name__)
 
 @app.post("/perform_query/")
 def perform_query() -> Response:
-    # нужно взять код из предыдущего ДЗ
-    # добавить команду regex
-    # добавить типизацию в проект, чтобы проходила утилиту mypy app.py
     try:
         cmd1 = request.args['cmd1']
         value1 = request.args['value1']
