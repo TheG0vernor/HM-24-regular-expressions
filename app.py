@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, request, Response, abort
 
 from constants import DATA_DIR
@@ -14,11 +13,11 @@ def perform_query() -> Response:
     # добавить команду regex
     # добавить типизацию в проект, чтобы проходила утилиту mypy app.py
     try:
-        cmd1 = request.args['cmd1'] or request.json['cmd1']
-        value1 = request.args['value1'] or request.json['value1']
-        cmd2 = request.args['cmd2'] or request.json['cmd2']
-        value2 = request.args['value2'] or request.json['value2']
-        file_name = request.args['file_name'] or request.json['file_name']
+        cmd1 = request.args['cmd1']
+        value1 = request.args['value1']
+        cmd2 = request.args['cmd2']
+        value2 = request.args['value2']
+        file_name = request.args['file_name']
         log_file = os.path.join(DATA_DIR, file_name)
         if not os.path.isfile(log_file):
             abort(400, 'несоответствие имени файла')
